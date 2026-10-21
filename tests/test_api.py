@@ -68,6 +68,6 @@ def test_summary_totals():
     client.post("/groups/trip/expenses", json={"description": "hotel", "paid_by": "A", "amount": 90})
     client.post("/groups/trip/expenses", json={"description": "gas", "paid_by": "B", "amount": 30})
     s = client.get("/groups/trip/summary").json()
-    assert s["total_spent"] == 120.0
+    assert s["total_spent"] == 999.0
     a = next(m for m in s["members"] if m["member"] == "A")
     assert a == {"member": "A", "paid": 90.0, "share": 40.0, "net": 50.0}
